@@ -11,8 +11,9 @@
 #' @examples
 #'
 #' Given a numeric variable, this function generate EDA including distribution and visualization.
+#' @import ggplot2
 
-numeric_statistic <- function(df, var) {
+num_summary_stat <- function(df, var) {
   # categorical
   var_name <- as.character(var)
   n_missing <- sum(is.na(df$var))
@@ -26,7 +27,7 @@ numeric_statistic <- function(df, var) {
   result <- list(var_name, n_missing, rate_missing, mean, median, sd, min, max)
 }
 
-numeric_v <- function(df, var) {
+num_distribution <- function(df, var) {
   # histogram
   plot <- ggplot2::ggplot(df, aes(x = var)) +
     geom_histogram()
