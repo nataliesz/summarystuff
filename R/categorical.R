@@ -1,27 +1,19 @@
 #' @title Generate explanatory data analysis for categorical variable
 #'
 #' @description
-#' Given a categorical variable, this function generate EDA including summary statistics and visualization.
-#'
-#' @importFrom ggplot2 ggplot
-#'
-#'
-cat_summary_stat <- function(var) {
-  # categorical
-  n <- table(var)
-  n_missing <- sum(is.na(var))
-  rate_missing <- sum(!is.na(var)) / length(var)
-  n_unique <- length(unique(var))
-  value_unique <- unique(var)
+#' Given a numeric variable, this function generate EDA including summary statistics and visualization.
 
-  result <- data.frame(
-    Variable_Name = var_name,
-    N_Missing = n_missing,
-    Rate_Missing = rate_missing,
-    N_Unique = n_unique,
-    Value_unique = value_unique
-  )
-  return(result)
+cat_summary_stat <- function(df, var) {
+# categorical
+  results <- df |>
+    group_by({{var}}) |>
+    summarise(
+      n = n(),
+      prop = n() / nrow(df),
+      n_missing = sum(is.na({{var}})),
+      prop_missing = sum(is.na({{var}})) / length({{var}})
+    )
+  return(results)
 }
 
 #' @param var A categorical variable for[`summarystuff`].
@@ -33,7 +25,7 @@ cat_summary_stat <- function(var) {
 
 cat_distribution <- function(df, var) {
   # barplot
-  plot <- ggplot2::ggplot(df, aes(x = var)) + geom_bar()
+  plot <- ggplot2::ggplot(df, aes(x = {{var}})) + geom_bar()
   return(plot)
 }
 #' Plot Categorical Variable Distribution
@@ -46,9 +38,9 @@ cat_distribution <- function(df, var) {
 
 
 
-cat_ <- function(df, var, y) {
+cat_relation <- function(df, var, y) {
   # boxplot with y variable
-  plot <- ggplot2::ggplot(df, aes(x = var, y = y)) + geom_boxplot()
+  plot <- ggplot2::ggplot(df, aes(x = {{var}}, y = {{y}})) + geom_boxplot()
   return(plot)
 }
 #' Plot Categorical Variable Against Another Variable.
