@@ -1,6 +1,6 @@
 #' @title EDA for Numerics
 #'
-#' @description Generates exploratory data analysis for numeric variables
+#' @description Given a numeric variable, generates basic exploratory data analysis
 #'
 #' @importFrom dplyr summarise
 #'
@@ -9,9 +9,9 @@
 #' @param ... currently unused
 #'
 #' @examples
-#'
-#' Given a numeric variable, this function generate EDA including distribution and visualization.
-#' @import geom_histogram ggplot2::geom_histogram
+#' data("mtcars")
+#' numeric_stats(mtcars, mtcars$mpg)
+#' @return A list of summary stats
 
 numeric_stats <- function(df, var) {
   df |>
@@ -27,12 +27,8 @@ numeric_stats <- function(df, var) {
 }
 
 histogram <- function(df, var) {
-  hist()
-}
-
-num_distribution <- function(df) {
-  # histogram
-  hist(df$var)
+  hist(var,
+       xlab = "Distribution of")
 }
 
 numeric_y <- function(df, var, y) {
