@@ -21,7 +21,8 @@ cat_summary_stat <- function(df, var) {
 #'   values, rate of missing values, number of unique categories, and unique
 #'   category values.
 #' @examples
-
+#'\dontrun{
+#'}
 
 cat_distribution <- function(df, var) {
   # barplot
@@ -34,7 +35,8 @@ cat_distribution <- function(df, var) {
 #' @return A ggplot object displaying the distribution of the categorical variable.
 #'
 #' @examples
-#'
+#'\dontrun{
+#'}
 
 
 
@@ -51,7 +53,8 @@ cat_relation <- function(df, var, y) {
 #' @return A ggplot object displaying the box plot.
 #'
 #' @examples
-#'
+#'\dontrun{
+#'}
 
 
 # devtools::document()
