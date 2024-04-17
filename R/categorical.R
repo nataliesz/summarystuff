@@ -18,13 +18,13 @@ cat_summary_stat <- function(df, var) {
 
 cat_distribution <- function(df, var) {
   # barplot
-  plot <- ggplot2::ggplot(df, aes(x = var)) + geom_bar()
+  plot <- ggplot2::ggplot(df, aes(x = {{var}})) + geom_bar()
   return(plot)
 }
 
-cat_ <- function(df, var, y) {
+cat_relation <- function(df, var, y) {
   # boxplot with y variable
-  plot <- ggplot2::ggplot(df, aes(x = var, y = y)) + geom_boxplot()
+  plot <- ggplot2::ggplot(df, aes(x = {{var}}, y = {{y}})) + geom_boxplot()
   return(plot)
 }
 
