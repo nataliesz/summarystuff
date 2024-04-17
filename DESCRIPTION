@@ -5,8 +5,10 @@ Version: 0.1.0
 Author: Natalie Szewczyk (nszewczyk@smith.edu), Rael Daniel (radaniel@smith.edu), Yuzhang Fu
 (rfu@smith.edu) 
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: This is a package designed to help generate summary statistics and 
+     appropriate plots for a given dataset based on what information the user 
+     wants to get. It uses information from the user to calculate outliers, 
+     identify NA values, and create visualizations of the data.
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
