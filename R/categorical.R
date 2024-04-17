@@ -1,7 +1,18 @@
-#' @title Generate explanatory data analysis for categorical variable
+#' @title EDA for Categoricals
 #'
-#' @description
-#' Given a numeric variable, this function generate EDA including summary statistics and visualization.
+#' @description Generates exploratory data analysis for categorical variables
+#'
+#' @importFrom ggplot2 ggplot
+#' @importFrom dplyr summarise
+#'
+#' @param df A dataframe provided by the user
+#' @param var A categorical variable to compute statistics for
+#' @param y A variable to create visualization with
+#' @param ... currently unused
+#'
+#' @examples
+#'
+#' Given a categorical variable, this function generate EDA including distribution and visualization.
 
 cat_summary_stat <- function(df, var) {
 # categorical
