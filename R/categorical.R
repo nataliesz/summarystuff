@@ -3,25 +3,31 @@
 #' @description
 #' Given a numeric variable, this function generate EDA including summary statistics and visualization.
 
-categorical_ss <- function(var) {
+cat_summary_stat <- function(var) {
   # categorical
-  var_name <- as.character(var)
+  n <- table(var)
   n_missing <- sum(is.na(var))
   rate_missing <- sum(!is.na(var)) / length(var)
   n_unique <- length(unique(var))
   value_unique <- unique(var)
 
-  result <- list(var_name, n_missing, rate_missing, n_unique, value_unique)
+  result <- data.frame(
+    Variable_Name = var_name,
+    N_Missing = n_missing,
+    Rate_Missing = rate_missing,
+    N_Unique = n_unique,
+    Value_unique = value_unique
+  )
   return(result)
 }
 
-categorical_v <- function(df, var) {
+cat_distribution <- function(df, var) {
   # barplot
   plot <- ggplot2::ggplot(df, aes(x = var)) + geom_bar()
   return(plot)
 }
 
-categorical_y <- function(df, var, y) {
+cat_ <- function(df, var, y) {
   # boxplot with y variable
   plot <- ggplot2::ggplot(df, aes(x = var, y = y)) + geom_boxplot()
   return(plot)
