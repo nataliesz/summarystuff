@@ -1,6 +1,15 @@
-#' @title
-#' generate explanatory data analysis for numeric variable
-#' @description
+#' @title EDA for Numerics
+#'
+#' @description Generates exploratory data analysis for numeric variables
+#'
+#' @importFrom plot plot::ggplot2
+#'
+#' @param df A dataframe provided by the user
+#' @param var A variable to compute statistics for
+#' @param ... currently unused
+#'
+#' @examples
+#'
 #' Given a numeric variable, this function generate EDA including distribution and visualization.
 
 numeric_statistic <- function(df, var) {
