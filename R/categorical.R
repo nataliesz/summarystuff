@@ -3,22 +3,17 @@
 #' @description
 #' Given a numeric variable, this function generate EDA including summary statistics and visualization.
 
-cat_summary_stat <- function(var) {
+cat_summary_stat <- function(df, var) {
   # categorical
-  n <- table(var)
-  n_missing <- sum(is.na(var))
-  rate_missing <- sum(!is.na(var)) / length(var)
-  n_unique <- length(unique(var))
-  value_unique <- unique(var)
-
-  result <- data.frame(
-    Variable_Name = var_name,
-    N_Missing = n_missing,
-    Rate_Missing = rate_missing,
-    N_Unique = n_unique,
-    Value_unique = value_unique
-  )
-  return(result)
+  results <- df |>
+    group_by({{var}}) |>
+    summarise(
+      n = n(),
+      prop = n() / nrow(df),
+      n_missing = sum(is.na({{var}})),
+      prop_missing = sum(is.na({{var}})) / length({{var}})
+    )
+  return(results)
 }
 
 cat_distribution <- function(df, var) {
