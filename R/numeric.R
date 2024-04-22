@@ -79,7 +79,30 @@ numeric_y <- function(df, var, y) {
 #' @return A histogram distribution of the data provided
 
 histograms <- function(df, variable, bins) {
+  var_name <- deparse(substitute(variable))
   ggplot2::ggplot(data = df, ggplot2::aes(variable)) +
     ggplot2::geom_histogram(data = df, bins = bins) +
-    ggplot2::labs(variable = NULL)
+    ggplot2::labs(x = var_name)
+}
+
+
+#' @title Single Boxplot
+#'
+#' @description Given a dataset and a variable, creates a boxplot to see if
+#'   there are outliers in the data
+#'
+#' @param df dataframe provided by the user
+#' @param variable variable name
+#'
+#' @examples
+#' data(mtcars)
+#' boxplots(mtcars, mtcars$mpg)
+#'
+#' @return A boxplot of the data
+
+boxplots <- function(df, variable) {
+  var_name <- deparse(substitute(variable))
+  ggplot2::ggplot(data = df, ggplot2::aes(variable)) +
+    ggplot2::geom_boxplot(data = df) +
+    ggplot2::labs(x = var_name)
 }
