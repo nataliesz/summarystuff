@@ -63,3 +63,23 @@ numeric_y <- function(df, var, y) {
     geom_boxplot()
   return(plot)
 }
+
+#' @title Single Histogram
+#'
+#' @description Given a dataset and a variable, creates a histogram to see distribution of data
+#'
+#' @param df dataframe provided by the user
+#' @param variable variable name
+#' @param bins number of bins the user wants to create
+#'
+#' @examples
+#' data(mtcars)
+#' histograms(mtcars, mtcars$mpg, 5)
+#'
+#' @return A histogram distribution of the data provided
+
+histograms <- function(df, variable, bins) {
+  ggplot2::ggplot(data = df, ggplot2::aes(variable)) +
+    ggplot2::geom_histogram(data = df, bins = bins) +
+    ggplot2::labs(variable = NULL)
+}
