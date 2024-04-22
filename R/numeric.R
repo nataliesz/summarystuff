@@ -26,6 +26,32 @@ numeric_stats <- function(df, var) {
                      rate_mising = sum(!is.na(var)) / length(var))
 }
 
+
+#' @title Safe Summary Stats
+#'
+#' @description Given a dataset, computes the summary statistics for the data if
+#' there are no NA values
+#'
+#' @param df dataframe provided by the user
+#' @param x variable name
+#' @param ... currently unused
+#'
+#' @examples
+#' data(penguins)
+#' safe_stats(penguins$flipper_length_mm)
+#'
+#' @return A list of summary statistics or an error message stating there are NA values
+
+safe_stats <- function(x, ...) {
+  var_name <- deparse(substitute(x))
+  if (any(is.na(x))) {
+    stop("Cannot compute the summary stats of ", var_name, " because ", var_name, " contains NA values.")
+  } else {
+    base::summary(x, ...)
+  }
+}
+
+
 histogram <- function(df, var) {
   hist(var,
        xlab = "Distribution of")
