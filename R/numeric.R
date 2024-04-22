@@ -51,19 +51,6 @@ safe_stats <- function(x, ...) {
   }
 }
 
-
-histogram <- function(df, var) {
-  hist(var,
-       xlab = "Distribution of")
-}
-
-numeric_y <- function(df, var, y) {
-  # boxplot with y variable
-  plot <- ggplot2::ggplot(df, aes(x = var, y = var)) +
-    geom_boxplot()
-  return(plot)
-}
-
 #' @title Single Histogram
 #'
 #' @description Given a dataset and a variable, creates a histogram to see distribution of data
