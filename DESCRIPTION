@@ -2,8 +2,10 @@ Package: summarystuff
 Type: Package
 Title: Exploratory Data Analysis Helper
 Version: 0.1.0
-Author: Natalie Szewczyk (nszewczyk@smith.edu), Rael Daniel (radaniel@smith.edu), Yuzhang Fu
-(rfu@smith.edu) 
+Author: 
+    c(person("Natalie", "Szewczyk", ,"nszewczyk@smith.edu", role = ("aut", "cre"), comment = c(ORCID= "Your-ORCID-ID")), 
+    person("Rael"," Daniel, , "radaniel@smith.edu", role = "aut",  comment = c(ORCID= "Your-ORCID-ID")), 
+    person("Yuzhang", "Fu", , "rfu@smith.edu", role= "aut", comment = c(ORCID= "Your-ORCID-ID"))) 
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: This is a package designed to help generate summary statistics and 
      appropriate plots for a given dataset based on what information the user 
