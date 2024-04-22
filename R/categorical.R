@@ -30,7 +30,7 @@ cat_distribution <- function(df, var) {
   return(plot)
 }
 #' Plot Categorical Variable Distribution
-#' @param df
+#' @param df the dataset from the user
 #' @param var
 #' @return A ggplot object displaying the distribution of the categorical variable.
 #'
@@ -46,8 +46,8 @@ cat_relation <- function(df, var, y) {
   return(plot)
 }
 #' Plot Categorical Variable Against Another Variable.
-#' @param df
-#' @param var
+#' @param df the dataset from the user
+#' @param var the variable(s) of interest
 #' @param y The numerical variable to be plotted on y-axis.
 #'
 #' @return A ggplot object displaying the box plot.
