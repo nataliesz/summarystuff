@@ -73,8 +73,10 @@ numeric_y <- function(df, var, y) {
 #' @param bins number of bins the user wants to create
 #'
 #' @examples
+#' \dontrun{
 #' data(mtcars)
 #' histograms(mtcars, mtcars$mpg, 5)
+#' }
 #'
 #' @return A histogram distribution of the data provided
 
@@ -95,8 +97,10 @@ histograms <- function(df, variable, bins) {
 #' @param variable variable name
 #'
 #' @examples
+#' \dontrun{
 #' data(mtcars)
 #' boxplots(mtcars, mtcars$mpg)
+#' }
 #'
 #' @return A boxplot of the data
 
