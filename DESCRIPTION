@@ -1,4 +1,4 @@
-Package: summarystuff
+Package: EDAStat
 Type: Package
 Title: Exploratory Data Analysis Helper
 Version: 0.1.0
