@@ -17,3 +17,6 @@ LazyData: true
 URL: https://github.com/nataliesz/summarystuff
 BugReports: https://github.com/nataliesz/summarystuff/issues
 RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
