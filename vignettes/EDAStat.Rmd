@@ -1,0 +1,34 @@
+---
+title: "Using the EDAStat package"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Using the EDAStat package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+##C omputing summary statistic of a variable in a dataframe
+
+The main function of the EDAStat is to let the user generate a summary statistic of a variable(numeric or categorical).
+```{r setup}
+library(EDAStat)
+```
+
+The user then uses the EDAStat() function to generate summary statistic of a particular variable of interest by inputing the name of the dataset and the variable.
+
+```{r}
+summary_statistic <- EDAStat(dataset, variable)
+```
+
+
+
+
+
