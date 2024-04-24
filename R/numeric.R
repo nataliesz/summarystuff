@@ -57,7 +57,6 @@ histograms <- function(df, variable, bins) {
 #' @title Single Boxplot
 #'
 #' @description Given a dataset and a variable, creates a boxplot to see if
-#'   there are outliers in the data and to check if the distribution is evenly spread
 #'
 #' @param df dataframe provided by the user
 #' @param variable variable name

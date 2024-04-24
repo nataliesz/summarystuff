@@ -1,13 +1,19 @@
 Package: summarystuff
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Exploratory Data Analysis Helper
 Version: 0.1.0
-Author: Who wrote it
+Author: 
+    c(person("Natalie", "Szewczyk", ,"nszewczyk@smith.edu", role = ("aut", "cre"), comment = c(ORCID= "Your-ORCID-ID")), 
+    person("Rael"," Daniel, , "radaniel@smith.edu", role = "aut",  comment = c(ORCID= "Your-ORCID-ID")), 
+    person("Yuzhang", "Fu", , "rfu@smith.edu", role= "aut", comment = c(ORCID= "Your-ORCID-ID"))) 
 Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Description: This is a package designed to help generate summary statistics and 
+     appropriate plots for a given dataset based on what information the user 
+     wants to get. It uses information from the user to calculate outliers, 
+     identify NA values, and create visualizations of the data.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 URL: https://github.com/nataliesz/summarystuff
 BugReports: https://github.com/nataliesz/summarystuff/issues
+RoxygenNote: 7.2.3
