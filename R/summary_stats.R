@@ -1,9 +1,28 @@
+#' @title summary statistics for variables
+#'
+#' @description Given a variable, generates summary statistics based on its type
+#'
+#' @importFrom dplyr summarise
+#'
+#' @param df a dataframe containing the input variable.
+#' @param var a numeric or character argument.
+#' @param na.rm a logical indicating whether missing values should be removed.
+#'
+#' @examples
+#' data("mtcars")
+#' summary_stats("mpg", mtcars)
+#' @return a dataframe of summary stats for the mpg variable.
+#' @examples
+#' data("iris")
+#' summary_stats("Species", iris)
+#' @return a dataframe of summary stats for the Species variable.
 
 summary_stats <- function(x, ...) {
   UseMethod("summary_stats")
 }
 
-summary_stats.numeric <- function(df, var, na.rm = FALSE) {
+summary_stats.numeric <- function(var, df, na.rm = FALSE) {
+
   var_name <- deparse(substitute(var))
 
   if (na.rm) {
@@ -28,7 +47,9 @@ summary_stats.numeric <- function(df, var, na.rm = FALSE) {
   return(results)
 }
 
-summary_stats.factor <- function(df, var, na.rm = FALSE) {
+
+summary_stats.factor <- function(var, df, na.rm = FALSE) {
+
   var_name <- deparse(substitute(var))
 
   if (na.rm) {
@@ -50,6 +71,3 @@ summary_stats.factor <- function(df, var, na.rm = FALSE) {
 
   return(results)
 }
-
-# summary_stats(mtcars$mpg)
-# summary_stats(iris$Species)
