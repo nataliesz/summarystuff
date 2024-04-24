@@ -14,7 +14,10 @@
 #' @return A list of summary stats
 
 numeric_stats <- function(df, var) {
-  df |>
+  var_name <- deparse(substitute(var))
+  if (any(is.na(var))) {
+    stop("Cannot compute the summary stats of ", var_name, " because ", var_name, " contains NA values.")
+  } else {
     dplyr::summarise(min = min(var),
                      q1 = quantile(var, 0.25),
                      median = median(var),
@@ -24,30 +27,6 @@ numeric_stats <- function(df, var) {
                      sd = sd(var),
                      n_missing = sum(is.na(var)),
                      rate_mising = sum(!is.na(var)) / length(var))
-}
-
-
-#' @title Safe Summary Stats
-#'
-#' @description Given a dataset, computes the summary statistics for the data if
-#' there are no NA values
-#'
-#' @param df dataframe provided by the user
-#' @param x variable name
-#' @param ... currently unused
-#'
-#' @examples
-#' data(penguins)
-#' safe_stats(penguins$flipper_length_mm)
-#'
-#' @return A list of summary statistics or an error message stating there are NA values
-
-safe_stats <- function(x, ...) {
-  var_name <- deparse(substitute(x))
-  if (any(is.na(x))) {
-    stop("Cannot compute the summary stats of ", var_name, " because ", var_name, " contains NA values.")
-  } else {
-    base::summary(x, ...)
   }
 }
 
@@ -78,7 +57,6 @@ histograms <- function(df, variable, bins) {
 #' @title Single Boxplot
 #'
 #' @description Given a dataset and a variable, creates a boxplot to see if
-#'   there are outliers in the data
 #'
 #' @param df dataframe provided by the user
 #' @param variable variable name
