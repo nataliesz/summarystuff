@@ -1,3 +1,4 @@
 test_that("dataframe is valid", {
-  expect_equal(2 * 2, 4)
+  expect_true(is.list(summary_stats()))
+  expect_equal(class(summary_stats()), "data.frame")
 })
