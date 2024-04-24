@@ -22,6 +22,7 @@ summary_stats <- function(x, ...) {
 }
 
 summary_stats.numeric <- function(var, df, na.rm = FALSE) {
+
   var_name <- deparse(substitute(var))
 
   if (na.rm) {
@@ -46,7 +47,9 @@ summary_stats.numeric <- function(var, df, na.rm = FALSE) {
   return(results)
 }
 
+
 summary_stats.factor <- function(var, df, na.rm = FALSE) {
+
   var_name <- deparse(substitute(var))
 
   if (na.rm) {
@@ -68,4 +71,3 @@ summary_stats.factor <- function(var, df, na.rm = FALSE) {
 
   return(results)
 }
-
