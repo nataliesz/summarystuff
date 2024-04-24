@@ -15,9 +15,10 @@ knitr::opts_chunk$set(
 ```
 
 
-##C omputing summary statistic of a variable in a dataframe
+## Computing summary statistic of a variable in a dataframe
 
 The main function of the EDAStat is to let the user generate a summary statistic of a variable(numeric or categorical).
+
 ```{r setup}
 library(EDAStat)
 ```
