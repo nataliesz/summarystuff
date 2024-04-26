@@ -3,6 +3,7 @@
 #' @description Given a variable, generates summary statistics based on its type
 #'
 #' @importFrom dplyr summarise
+#'@importFrom dplyr n
 #'
 #' @param df a dataframe containing the input variable.
 #' @param var a numeric or character argument.
