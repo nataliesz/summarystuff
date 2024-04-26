@@ -34,7 +34,7 @@ The objects returned by the summary_stats function is a list of summary statisti
 Additionally, the EDAStat package also creates appropriate plots and visualizations for user specified data. 
 
 ```{r}
-var_visual <- distribution()
+distribution(dataset$variable, variable)
 ```
 
 
