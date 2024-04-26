@@ -1,22 +1,30 @@
 #' @title summary statistics for variables
 #'
-#' @description Given a variable, generates summary statistics based on its type
+#' @description Given a dataset and a variable, the function generates summary statistics based on its type
 #'
 #' @importFrom dplyr summarise
-#'@importFrom dplyr n
+#' @importFrom dplyr n
+#' @importFrom dplyr group_by
 #'
 #' @param df a dataframe containing the input variable.
 #' @param var a numeric or character argument.
 #' @param na.rm a logical indicating whether missing values should be removed.
 #'
 #' @examples
+#' \dontrun{
 #' data("mtcars")
 #' summary_stats(mtcars$mpg, mtcars)
+#' }
 #' @return a dataframe of summary stats for the mpg variable.
+#'
+#'
 #' @examples
+#' \dontrun{
 #' data("iris")
 #' summary_stats(iris$Species, iris)
-#' @return a dataframe of summary stats for the Species variable.
+#' }
+#' @return a dataframe of summary stats for the Species variable
+#'
 
 summary_stats <- function(x, ...) {
   UseMethod("summary_stats")
