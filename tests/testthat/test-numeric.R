@@ -3,5 +3,5 @@ test_that("dataframe is valid", {
 })
 
 test_that("summary_stats is valid", {
-  expect_true(is.list(summary_stats(mtcars$gear, mtcars)))
+  expect_true(is.list(summary_stats.factor(mtcars$gear, mtcars)))
 })
