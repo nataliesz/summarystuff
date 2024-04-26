@@ -22,12 +22,19 @@ The main function of the EDAStat is to let the user generate a summary statistic
 library(EDAStat)
 ```
 
-The user then uses the EDAStat() function to generate summary statistic of a particular variable of interest by inputing the name of the dataset and the variable.
+The user then uses the summary_stats() function to generate summary statistics of a particular variable of interest by inputing the name of the dataset and the variable.
 
 ```{r}
-summary_statistic <- EDAStat(dataset, variable)
+summary_var <- summary_stats(variable, dataset)
 ```
 
+The objects returned by the summary_stats function is a list of summary statistics about the specified variable.
+
+Additionally, the EDAStat package also creates appropriate plots and visualizations for user specified data. 
+
+```{r}
+var_visual <- distribution()
+```
 
 
 
