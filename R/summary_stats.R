@@ -10,11 +10,11 @@
 #'
 #' @examples
 #' data("mtcars")
-#' summary_stats("mpg", mtcars)
+#' summary_stats(mtcars$mpg, mtcars)
 #' @return a dataframe of summary stats for the mpg variable.
 #' @examples
 #' data("iris")
-#' summary_stats("Species", iris)
+#' summary_stats(iris$Species, iris)
 #' @return a dataframe of summary stats for the Species variable.
 
 summary_stats <- function(x, ...) {
@@ -22,7 +22,6 @@ summary_stats <- function(x, ...) {
 }
 
 summary_stats.numeric <- function(var, df, na.rm = FALSE) {
-
   var_name <- deparse(substitute(var))
 
   if (na.rm) {
@@ -47,9 +46,7 @@ summary_stats.numeric <- function(var, df, na.rm = FALSE) {
   return(results)
 }
 
-
 summary_stats.factor <- function(var, df, na.rm = FALSE) {
-
   var_name <- deparse(substitute(var))
 
   if (na.rm) {
@@ -70,4 +67,23 @@ summary_stats.factor <- function(var, df, na.rm = FALSE) {
     )
 
   return(results)
+}
+
+check_variable_type <- function(x) {
+  # Check if all values can be coerced to numeric
+  if (all(!is.na(as.numeric(x)))) {
+    # Check if the range of numeric values is relatively small compared to the number of unique values
+    numeric_var <- as.numeric(x)
+    if ((max(numeric_var) - min(numeric_var)) / length(unique(numeric_var)) < 0.1) {
+      return("factor")
+    } else {
+      return("numeric")
+    }
+  }
+  # Check if the number of unique values is small
+  if (length(unique(x)) < 10) {
+    return("factor")
+  }
+  # Otherwise, default to character
+  return("character")
 }
