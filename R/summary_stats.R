@@ -60,8 +60,8 @@ summary_stats.factor <- function(var, df, na.rm = FALSE) {
   results <- df |>
     dplyr::group_by({{var}}) |>
     dplyr::summarise(
-      n = n(),
-      prop = n() / nrow(df),
+      n = dplyr::n(),
+      prop = dplyr::n() / nrow(df),
       n_missing = sum(is.na({{var}})),
       prop_missing = sum(is.na({{var}})) / length({{var}})
     )
