@@ -20,11 +20,11 @@ distribution <- function(x, ...) {
   UseMethod("distribution")
 }
 
-distribution.numeric <- function(var, df) {
+distribution.numeric <- function(var, df, ...) {
   var_name <- deparse(substitute(var))
 
   ggplot2::ggplot(df, ggplot2::aes(var)) +
-    ggplot2::geom_histogram() +
+    ggplot2::geom_histogram(...) +
     ggplot2::labs(x = var_name)
 }
 
