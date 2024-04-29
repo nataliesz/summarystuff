@@ -18,7 +18,7 @@
 #' @return a dataframe of summary stats for the mpg variable.
 #' @exportS3Method
 #'
-summary_stats <- function(x, ...) {
+summary_stats <- function(var, df, na.rm = FALSE, ...) {
   UseMethod("summary_stats")
 }
 #' @title summary statistics for numeric variables
