@@ -52,16 +52,16 @@ summary_stats.numeric <- function(var, df, na.rm = FALSE) {
     stop("Cannot compute the summary stats of ", var_name, " because ", var_name, " contains NA values.")
   }
 
-  results <- df |>
-    dplyr::summarise(min = min(var),
-                     q1 = quantile(var, 0.25),
-                     median = median(var),
-                     mean = mean(var),
-                     q3 = quantile(var, 0.75),
-                     max = max(var),
-                     sd = sd(var),
-                     n_missing = sum(is.na(var)),
-                     rate_mising = sum(!is.na(var)) / length(var))
+  results <- summarise(df,
+                       min = min({{var}}),
+                       q1 = quantile({{var}}, 0.25),
+                       median = median({{var}}),
+                       mean = mean({{var}}),
+                       q3 = quantile({{var}}, 0.75),
+                       max = max({{var}}),
+                       sd = sd({{var}}),
+                       n_missing = sum(is.na({{var}})),
+                       rate_missing = mean(!is.na({{var}})))
 
   return(results)
 }
@@ -96,14 +96,12 @@ summary_stats.factor <- function(var, df, na.rm = FALSE) {
     stop("Cannot compute the summary stats of ", var_name, " because ", var_name, " contains NA values.")
   }
 
-  results <- df |>
-    dplyr::group_by({{var}}) |>
-    dplyr::summarise(
-      n = dplyr::n(),
-      prop = dplyr::n() / nrow(df),
-      n_missing = sum(is.na({{var}})),
-      prop_missing = sum(is.na({{var}})) / length({{var}})
-    )
+  results <- df %>%
+    group_by({{var}}) %>%
+    summarise(n = n(),
+              prop = n() / nrow(df),
+              n_missing = sum(is.na({{var}})),
+              prop_missing = sum(is.na({{var}})) / length({{var}}))
 
   return(results)
 }
