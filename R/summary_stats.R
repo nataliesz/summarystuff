@@ -16,20 +16,31 @@
 #' summary_stats(mtcars$mpg, mtcars)
 #' }
 #' @return a dataframe of summary stats for the mpg variable.
+#' @exportS3Method
 #'
-#'
-#' @examples
-#' \dontrun{
-#' data("iris")
-#' summary_stats(iris$Species, iris)
-#' }
-#' @return a dataframe of summary stats for the Species variable
-#'
-
 summary_stats <- function(x, ...) {
   UseMethod("summary_stats")
 }
-
+#' @title summary statistics for numeric variables
+#'
+#' @description Given a dataset and a variable, the function generates summary statistics based on its type
+#'
+#' @importFrom dplyr summarise
+#' @importFrom dplyr n
+#' @importFrom dplyr group_by
+#'
+#' @param df a dataframe containing the input variable.
+#' @param var a numeric or character argument.
+#' @param na.rm a logical indicating whether missing values should be removed.
+#'
+#' @examples
+#' \dontrun{
+#' data("mtcars")
+#' summary_stats(mtcars$mpg, mtcars)
+#' }
+#' @return a dataframe of summary stats for the mpg variable.
+#' @exportS3Method
+#'
 summary_stats.numeric <- function(var, df, na.rm = FALSE) {
   var_name <- deparse(substitute(var))
 
@@ -54,7 +65,26 @@ summary_stats.numeric <- function(var, df, na.rm = FALSE) {
 
   return(results)
 }
-
+#' @title summary statistics for factor variables
+#'
+#' @description Given a dataset and a variable, the function generates summary statistics based on its type
+#'
+#' @importFrom dplyr summarise
+#' @importFrom dplyr n
+#' @importFrom dplyr group_by
+#'
+#' @param df a dataframe containing the input variable.
+#' @param var a numeric or character argument.
+#' @param na.rm a logical indicating whether missing values should be removed.
+#'
+#' @examples
+#' \dontrun{
+#' data("iris")
+#' summary_stats(iris$Species, iris)
+#' }
+#' @return a dataframe of summary stats for the mpg variable.
+#' @exportS3Method
+#'
 summary_stats.factor <- function(var, df, na.rm = FALSE) {
   var_name <- deparse(substitute(var))
 
