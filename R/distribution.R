@@ -11,6 +11,7 @@
 #' data("mtcars")
 #' distribution(mtcars$mpg, mtcars)
 #' @return a histogram for the mpg variable.
+#'
 #' @export
 #'
 distribution <- function(x, ...) {
@@ -29,6 +30,7 @@ distribution <- function(x, ...) {
 #' data("mtcars")
 #' distribution(mtcars$drat, mtcars)
 #' @return a histogram for the drat variable.
+#'
 #' @exportS3Method
 #'
 distribution.numeric <- function(var, df, ...) {
