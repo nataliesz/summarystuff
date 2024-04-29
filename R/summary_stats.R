@@ -16,9 +16,10 @@
 #' summary_stats(mtcars$mpg, mtcars)
 #' }
 #' @return a dataframe of summary stats for the mpg variable.
-#' @exportS3Method
 #'
-summary_stats <- function(var, df, na.rm = FALSE, ...) {
+#' @export
+#'
+summary_stats <- function(var, df, na.rm = FALSE) {
   UseMethod("summary_stats")
 }
 #' @title summary statistics for numeric variables
@@ -39,6 +40,7 @@ summary_stats <- function(var, df, na.rm = FALSE, ...) {
 #' summary_stats(mtcars$mpg, mtcars)
 #' }
 #' @return a dataframe of summary stats for the mpg variable.
+#'
 #' @exportS3Method
 #'
 summary_stats.numeric <- function(var, df, na.rm = FALSE) {
@@ -83,6 +85,7 @@ summary_stats.numeric <- function(var, df, na.rm = FALSE) {
 #' summary_stats(iris$Species, iris)
 #' }
 #' @return a dataframe of summary stats for the mpg variable.
+#'
 #' @exportS3Method
 #'
 summary_stats.factor <- function(var, df, na.rm = FALSE) {

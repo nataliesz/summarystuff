@@ -8,13 +8,15 @@
 #' @param var a numeric or character argument.
 #'
 #' @examples
+#' \dontrun{
 #' data("mtcars")
 #' distribution(mtcars$mpg, mtcars)
+#' }
 #' @return a histogram for the mpg variable.
 #'
 #' @export
 #'
-distribution <- function(x, ...) {
+distribution <- function(var, df, ...) {
   UseMethod("distribution")
 }
 #' @title distribution plot for numeric variables
@@ -53,9 +55,10 @@ distribution.numeric <- function(var, df, ...) {
 #' data("mtcars")
 #' distribution(mtcars$cyl, mtcars)
 #' @return a histogram of counts for each of the levels for the cyl variable.
+#'
 #' @exportS3Method
 #'
-distribution.factor <- function(var, df) {
+distribution.factor <- function(var, df, ...) {
   var_name <- deparse(substitute(var))
 
   ggplot2::ggplot(df, ggplot2::aes(var)) +
