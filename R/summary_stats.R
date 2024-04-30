@@ -15,7 +15,7 @@
 #' data("mtcars")
 #' summary_stats(mtcars$mpg, mtcars)
 #' }
-#' @return a dataframe of summary stats for the mpg variable.
+#' @return a list of summary stats for the mpg variable.
 #'
 #' @export
 #'
@@ -32,22 +32,22 @@ summary_stats <- function(var, df, na.rm = FALSE) {
 #'
 #' @param df a dataframe containing the input variable.
 #' @param var a numeric or character argument.
-#' @param na.rm a logical indicating whether missing values should be removed.
+#' @param na.rm a logical indicating whether missing values should be removed, default is FALSE but user can specify TRUE
 #'
 #' @examples
 #' \dontrun{
 #' data("mtcars")
 #' summary_stats(mtcars$mpg, mtcars)
 #' }
-#' @return a dataframe of summary stats for the mpg variable.
+#' @return a list of summary stats for the mpg variable.
 #'
 #' @exportS3Method
 #'
 summary_stats.numeric <- function(var, df, na.rm = FALSE) {
   var_name <- deparse(substitute(var))
 
-  if (na.rm) {
-    x <- na.omit(var)
+  if (na.rm == TRUE) {
+    var <- stats::na.omit(var)
   }
 
   if (any(is.na(var))) {
@@ -84,15 +84,15 @@ summary_stats.numeric <- function(var, df, na.rm = FALSE) {
 #' data("iris")
 #' summary_stats(iris$Species, iris)
 #' }
-#' @return a dataframe of summary stats for the mpg variable.
+#' @return a list of summary stats for the mpg variable.
 #'
 #' @exportS3Method
 #'
 summary_stats.factor <- function(var, df, na.rm = FALSE) {
   var_name <- deparse(substitute(var))
 
-  if (na.rm) {
-    x <- na.omit(var)
+  if (na.rm == TRUE) {
+    var <- stats::na.omit(var)
   }
 
   if (any(is.na(var))) {
@@ -108,3 +108,4 @@ summary_stats.factor <- function(var, df, na.rm = FALSE) {
 
   return(results)
 }
+
