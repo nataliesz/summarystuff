@@ -11,10 +11,10 @@
 
 \item{df}{a dataframe containing the input variable.}
 
-\item{na.rm}{a logical indicating whether missing values should be removed.}
+\item{na.rm}{a logical indicating whether missing values should be removed, default is FALSE but user can specify TRUE}
 }
 \value{
-a dataframe of summary stats for the mpg variable.
+a list of summary stats for the mpg variable.
 }
 \description{
 Given a dataset and a variable, the function generates summary statistics based on its type

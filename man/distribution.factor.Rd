@@ -10,6 +10,8 @@
 \item{var}{a factor variable argument.}
 
 \item{df}{a dataframe containing the input variable.}
+
+\item{...}{optional argument for user to specify binwidth (default is 30)}
 }
 \value{
 a histogram of counts for each of the levels for the cyl variable.

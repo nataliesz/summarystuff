@@ -14,7 +14,7 @@ summary_stats(var, df, na.rm = FALSE)
 \item{na.rm}{a logical indicating whether missing values should be removed.}
 }
 \value{
-a dataframe of summary stats for the mpg variable.
+a list of summary stats for the mpg variable.
 }
 \description{
 Given a dataset and a variable, the function generates summary statistics based on its type

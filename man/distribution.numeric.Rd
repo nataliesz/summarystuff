@@ -10,6 +10,8 @@
 \item{var}{a numeric or character argument.}
 
 \item{df}{a dataframe containing the input variable.}
+
+\item{...}{optional argument for user to specify binwidth (default is 30)}
 }
 \value{
 a histogram for the drat variable.
