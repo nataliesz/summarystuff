@@ -26,7 +26,7 @@ library(EDAStat)
 The user then uses the summary_stats() function to generate summary statistics of a particular variable of interest by inputing the name of the dataset and the variable.
 
 ```{r}
-summary_var <- summary_stats(dataset$variable, dataset)
+summary_var <- summary_stats(mtcars$mpg, mtcars)
 ```
 
 The objects returned by the summary_stats function is a list of summary statistics about the specified variable.
@@ -34,9 +34,6 @@ The objects returned by the summary_stats function is a list of summary statisti
 Additionally, the EDAStat package also creates appropriate plots and visualizations for user specified data. 
 
 ```{r}
-distribution(dataset$variable, variable)
+distribution(mtcars$drat, mtcars)
 ```
 This creates histogram for a numeric variable or a bar plot for the categorical varible from the user.
-
-
-

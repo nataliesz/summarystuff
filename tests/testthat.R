@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(summarystuff)
+library(EDAStat)
 
-test_check("summarystuff")
+test_check("EDAStat")
