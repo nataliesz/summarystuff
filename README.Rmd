@@ -1,0 +1,46 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# EDAStat
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of EDAStat is to ...
+
+## Installation
+
+You can install the development version of EDAStat from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("nataliesz/summarystuff")
+```
+
+## Usage
+
+Given a variable and a dataset, summary_stats() function from the EDAStat package generates a statistical summary of the variable and provides that summary output in a list format.
+
+```{r}
+library(EDAStat)
+
+summary_stats(mtcars$mpg, mtcars)
+```
+
+The EDAStat package function distribution() can generate a histograms of a specified variable and display the graphin the Plots section of RStudio
+
+```{r}
+distribution(mtcars$qsec, mtcars)
+```
