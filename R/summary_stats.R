@@ -5,6 +5,10 @@
 #' @importFrom dplyr summarise
 #' @importFrom dplyr n
 #' @importFrom dplyr group_by
+#' @importFrom stats
+#' @importFrom stats median
+#' @importFrom stats sd
+#' @importFrom stats quantile
 #'
 #' @param df a dataframe containing the input variable.
 #' @param var a numeric or character argument.
@@ -29,6 +33,10 @@ summary_stats <- function(var, df, na.rm = FALSE) {
 #' @importFrom dplyr summarise
 #' @importFrom dplyr n
 #' @importFrom dplyr group_by
+#' @importFrom stats
+#' @importFrom stats median
+#' @importFrom stats sd
+#' @importFrom stats quantile
 #'
 #' @param df a dataframe containing the input variable.
 #' @param var a numeric or character argument.
@@ -74,6 +82,11 @@ summary_stats.numeric <- function(var, df, na.rm = FALSE) {
 #' @importFrom dplyr summarise
 #' @importFrom dplyr n
 #' @importFrom dplyr group_by
+#' @importFrom stats
+#' @importFrom stats median
+#' @importFrom stats sd
+#' @importFrom stats quantile
+#'
 #'
 #' @param df a dataframe containing the input variable.
 #' @param var a numeric or character argument.
@@ -99,8 +112,8 @@ summary_stats.factor <- function(var, df, na.rm = FALSE) {
     stop("Cannot compute the summary stats of ", var_name, " because ", var_name, " contains NA values.")
   }
 
-  results <- df %>%
-    group_by({{var}}) %>%
+  results <- df |>
+    group_by({{var}}) |>
     summarise(n = n(),
               prop = n() / nrow(df),
               n_missing = sum(is.na({{var}})),
@@ -108,4 +121,3 @@ summary_stats.factor <- function(var, df, na.rm = FALSE) {
 
   return(results)
 }
-
