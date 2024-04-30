@@ -6,6 +6,7 @@
 #'
 #' @param df a dataframe containing the input variable.
 #' @param var a numeric or character argument.
+#' @param ... optional argument for user to specify binwidth (default is 30)
 #'
 #' @examples
 #' \dontrun{
@@ -27,6 +28,7 @@ distribution <- function(var, df, ...) {
 #'
 #' @param df a dataframe containing the input variable.
 #' @param var a numeric or character argument.
+#' @param ... optional argument for user to specify binwidth (default is 30)
 #'
 #' @examples
 #' data("mtcars")
@@ -50,6 +52,7 @@ distribution.numeric <- function(var, df, ...) {
 #'
 #' @param df a dataframe containing the input variable.
 #' @param var a factor variable argument.
+#' @param ... optional argument for user to specify binwidth (default is 30)
 #'
 #' @examples
 #' data("mtcars")
