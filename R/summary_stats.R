@@ -5,7 +5,6 @@
 #' @importFrom dplyr summarise
 #' @importFrom dplyr n
 #' @importFrom dplyr group_by
-#' @importFrom stats
 #' @importFrom stats median
 #' @importFrom stats sd
 #' @importFrom stats quantile
@@ -33,7 +32,6 @@ summary_stats <- function(var, df, na.rm = FALSE) {
 #' @importFrom dplyr summarise
 #' @importFrom dplyr n
 #' @importFrom dplyr group_by
-#' @importFrom stats
 #' @importFrom stats median
 #' @importFrom stats sd
 #' @importFrom stats quantile
@@ -82,7 +80,6 @@ summary_stats.numeric <- function(var, df, na.rm = FALSE) {
 #' @importFrom dplyr summarise
 #' @importFrom dplyr n
 #' @importFrom dplyr group_by
-#' @importFrom stats
 #' @importFrom stats median
 #' @importFrom stats sd
 #' @importFrom stats quantile
