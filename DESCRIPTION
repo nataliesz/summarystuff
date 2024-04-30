@@ -19,7 +19,8 @@ BugReports: https://github.com/nataliesz/summarystuff/issues
 RoxygenNote: 7.2.3
 Imports: 
     dplyr,
-    ggplot2
+    ggplot2,
+    vdiffr
 Suggests: 
     knitr,
     rmarkdown,

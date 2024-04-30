@@ -12,3 +12,4 @@ test_that("distributions work", {
     fig = distribution.numeric(mtcars$mpg, mtcars)
   )
 })
+
