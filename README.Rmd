@@ -33,7 +33,7 @@ Make sure to install the required dependencies (dplyr, ggplot2, stats) before in
 
 ## Usage
 
-Given a variable and a dataset, summary_stats() function from the EDAStat package generates a statistical summary of the variable and provides that summary output in a list format.
+Given a variable and a dataset, `summary_stats()` function from the EDAStat package generates a statistical summary of the variable and provides that summary output in a list format.
 
 ```{r}
 library(EDAStat)
@@ -41,7 +41,7 @@ library(EDAStat)
 summary_stats(mtcars$mpg, mtcars)
 ```
 
-The EDAStat package function distribution() can generate a histograms of a specified variable and display the graphin the Plots section of RStudio
+The EDAStat package function `distribution()` can generate a histograms of a specified variable and display the graphin the Plots section of RStudio
 
 ```{r}
 distribution(mtcars$qsec, mtcars)

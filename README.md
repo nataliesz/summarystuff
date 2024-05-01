@@ -27,7 +27,7 @@ before installing EDAStat.
 
 ## Usage
 
-Given a variable and a dataset, summary_stats() function from the
+Given a variable and a dataset, `summary_stats()` function from the
 EDAStat package generates a statistical summary of the variable and
 provides that summary output in a list format.
 
@@ -39,8 +39,8 @@ summary_stats(mtcars$mpg, mtcars)
 #> 1 10.4 15.425   19.2 20.09062 22.8 33.9 6.026948         0            1
 ```
 
-The EDAStat package function distribution() can generate a histograms of
-a specified variable and display the graphin the Plots section of
+The EDAStat package function `distribution()` can generate a histograms
+of a specified variable and display the graphin the Plots section of
 RStudio
 
 ``` r
