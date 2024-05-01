@@ -6,7 +6,11 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of EDAStat is to …
+The goal of the EDAStat package is to facilitate Exploratory Data
+Analysis (EDA) by providing functions to generate summary statistics and
+appropriate plots for a given dataset. It helps users understand their
+data by calculating outliers, identifying missing values, and creating
+visualizations.
 
 ## Installation
 
@@ -17,6 +21,9 @@ You can install the development version of EDAStat from
 # install.packages("devtools")
 devtools::install_github("nataliesz/summarystuff")
 ```
+
+Make sure to install the required dependencies (dplyr, ggplot2, stats)
+before installing EDAStat.
 
 ## Usage
 
@@ -42,3 +49,8 @@ distribution(mtcars$qsec, mtcars)
 ```
 
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
+
+## License
+
+`EDAStat` is licensed under the MIT License. See the [LICENSE](LICENSE)
+file for details.
