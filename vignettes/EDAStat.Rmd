@@ -17,23 +17,26 @@ knitr::opts_chunk$set(
 
 ## Computing summary statistic of a variable in a dataframe
 
-The main function of the EDAStat is to let the user generate a summary statistic of a variable(numeric or categorical).
+The main function of the EDAStat is to let the user generate a summary statistic of a variable in any given dataset, so long as the variable is off the class either numeric or factor. Our package does not currently handle the generation of summary statistics of categorical variables.
 
 ```{r setup}
 library(EDAStat)
 ```
 
-The user then uses the summary_stats() function to generate summary statistics of a particular variable of interest by inputing the name of the dataset and the variable.
+Once the user loads the `EDAStat` package using `library()`, they have two options for functions to utilize at their disposal. The user can uses the summary_stats() function to generate summary statistics of a particular variable of interest by inputing the name of the dataset and the variable. With this function, the variable of the dataset must be selectd first and the name of the dataset second. The function works best if the user states the name of the dataset then uses the `$` to subset the variable they want to summarize. An example can be seen below.
 
 ```{r}
 summary_var <- summary_stats(mtcars$mpg, mtcars)
 ```
 
-The objects returned by the summary_stats function is a list of summary statistics about the specified variable.
+The objects returned by the `summary_stats` function is a list of summary statistics about the specified variable, including minimum value, q1, median, mean, q3, maximum, standard deviation, number missing, and rate missing. 
 
-Additionally, the EDAStat package also creates appropriate plots and visualizations for user specified data. 
+Additionally, the EDAStat package is capable of creating an appropriate distribution of the specified data (as a histogram) for the user. The `distribution` function has two required parameters, the first of which being a variable of the users choice (again, our package works best if the user uses `$` to properly subset their variable) and the second parameter is the dataframe itself. There is an optional argument of specifying the binwidth for the histogram so that the user can get a good feel for the distribution of their data. 
 
 ```{r}
 distribution(mtcars$drat, mtcars)
+
+distribution(mtcars$mpg, bins = 10)
 ```
-This creates histogram for a numeric variable or a bar plot for the categorical varible from the user.
+
+The `distribution` function is helpful because it allows the user to visualize their data and investigate whether it is normally distributed, skewed, unimodal, or if it has any outliers. This can be helpful for running analyses like ANOVA or comparing data across time to see changes.
